@@ -30,27 +30,7 @@ const Hero = () => {
  
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#hero",
-          start: "top top",
-          end: "+=100%", // Hold this section until animation completes
-          scrub: true,
-          pin: true,
-          onEnter: () =>
-            gsap.to(".object", {
-              y: "0%",
-              opacity: 1,
-              duration: 1.2,
-              ease: "power4.out",
-            }),
-        },
-      });
-      tl.fromTo(
-        "#object",
-        { y: "150%", scale: 0, opacity: 0 }, // Object starts completely outside bottom
-        { y: "0%", scale: 1, opacity: 1, ease: "power3.out" }
-      );
+    
       const split = SplitText.create("#title",{
         type:"words",
         wordsClass:"word"
@@ -66,6 +46,30 @@ const Hero = () => {
         })
         gsap.from("#images", { opacity: 0, y: 100, duration: 1, ease: "power4.out" });
     });
+
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "+=100%", // Hold this section until animation completes
+          scrub: true,
+          pin: isMobile ? false : true,
+          onEnter: () =>
+            gsap.to("#object", {
+              y: "0%",
+              opacity: 1,
+              duration: 1.2,
+              ease: "power4.out",
+            }),
+        },
+      });
+      tl.fromTo(
+        "#object",
+        { y: isMobile ? "0%" : "150%" , scale: isMobile ? 1 : 0, opacity: isMobile ? 1 : 0 }, // Object starts completely outside bottom
+        { y: "0%", scale: 1, opacity: 1, ease: "power3.out" }
+      );
+    
     return () => ctx.revert();
   }, []);
   return (
@@ -92,7 +96,7 @@ const Hero = () => {
         <Heroimage
           src="/hero.jpg"
           alt="hero"
-          style="flex items-start sm:items-end justify-center"
+          style="flex items-start sm:items-end justify-center hidden sm:flex" 
         />
         <Heroimage
           src="/serve.jpg"

@@ -31,6 +31,7 @@ const Text: React.FC<textProps> = ({
 };
 const About = () => {
   useEffect(() => {
+    const ismobile = window.matchMedia("(max-width: 768px)").matches;
     gsap.from("#about", {
       scrollTrigger: "#about",
       opacity: 0,
@@ -57,7 +58,7 @@ const About = () => {
      
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
      t1.to("#about_us", {
-      y: "10%",
+      y: ismobile ? "0%" : "10%",
       opacity: 1,
       duration: 1.2,
       ease: "power4.out",
