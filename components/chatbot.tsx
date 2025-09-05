@@ -192,7 +192,9 @@ const ChatBot = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      
       <div ref={ref} id="chat" className="fixed bottom-5 right-[5%] z-50 w-full flex items-center justify-center sm:justify-end px-15 xl:px-10">
+      {!isOpen &&
      <motion.p            
            style={{opacity}}
             animate={{ x: [0, 30, 0] }}
@@ -205,8 +207,10 @@ const ChatBot = () => {
             transition={{ duration: 1.5 ,
               repeat: Infinity ,
               ease: "easeInOut",}} className="text-neutral-800  text-xl text-center flex font-bold items-center justify-center  "> Use our ai bot → </motion.p>
+            }
                
       </div>
+
     </div>
   );
 };
