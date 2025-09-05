@@ -101,10 +101,10 @@ export const menu1 = [
   
   export const footerLinks = {
     quickLinks: [
-      { name: "Home", path: "/" },
-      { name: "Menu", path: "/menu" },
-      { name: "About Us", path: "/about" },
-      { name: "Contact", path: "/contact" },
+      { name: "Home", path: "hero" },
+      { name: "Menu", path: "menu_section" },
+      { name: "About Us", path: "about" },
+      { name: "Contact", path: "footer" },
     ],
     contact: {
       email: "contact@joderestaurant.com",

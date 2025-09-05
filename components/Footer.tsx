@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { footerLinks } from "./constraints";
+import { useSmoothScroll } from "./Scrollcontext";
+import { button } from "framer-motion/client";
 
 const icons = {
   FaFacebookF,
@@ -12,8 +14,9 @@ const icons = {
 };
 
 export default function Footer() {
+  const lenis = useSmoothScroll()
   return (
-    <footer className="bg-gray-100 border-t border-gray-200">
+    <footer id="footer" className="bg-gray-100 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Tagline */}
@@ -34,9 +37,15 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-gray-600 text-sm">
               {footerLinks.quickLinks.map((link, index) => (
-                <li key={index}>
-                  <Link href={link.path}>{link.name}</Link>
-                </li>
+             
+                <button key={index} onClick={()=> {
+                  const target = document.querySelector(`#${link.path}`) as HTMLElement;
+                  if(target && lenis)
+                    lenis.scrollTo(target);
+                }} className="hover:scale-101 flex flex-col" >
+                  {link.name}
+                </button>
+             
               ))}
             </ul>
           </div>
