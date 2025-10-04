@@ -24,7 +24,7 @@ const Menu = () => {
     })
   })
   return (
-    <section id='#menu_section' className="w-full text-gray-900 py-16 px-6 md:px-12 lg:px-20 xl:px-40 relative">
+    <section id='#menu_section' className=" bg-white w-full text-gray-900 py-16 px-6 md:px-12 lg:px-20 xl:px-40 relative">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
       {/* LEFT SIDE: Menu Items */}
       <div>
@@ -118,7 +118,7 @@ const Menu = () => {
         </div>
       </div>
     </div>
-    <div className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center z-[-1]'>
+    <div className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center '>
       <h1 className='text-[150px] xl:text-[500px] font-bold text-gray-800/20 font-anaton tracking-wide'>
       JODE
       </h1>

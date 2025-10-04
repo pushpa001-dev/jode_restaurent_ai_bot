@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { footerLinks } from "./constraints";
 import { useSmoothScroll } from "./Scrollcontext";
-import { button } from "framer-motion/client";
+
 
 const icons = {
   FaFacebookF,

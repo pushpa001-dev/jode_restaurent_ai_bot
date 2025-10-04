@@ -22,7 +22,7 @@ const Offer = () => {
   };
 
   return (
-    <section className="w-full py-10 lg:py-20 flex relative overflow-hidden">
+    <section className="w-full py-10 lg:py-20 flex relative overflow-hidden bg-white">
       <div
         ref={firstText}
         className="flex w-full items-center justify-center m-0"
